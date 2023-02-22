@@ -82,6 +82,10 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 kubectl create -f https://docs.projectcalico.org/manifests/tigera-operator.yaml
 wget https://docs.projectcalico.org/manifests/custom-resources.yaml
 
+OR 
+
+kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
+
 Note:
 - Since I am using subnet for POD as 10.244.0.0/16 instead of default 192.168.0.0/16 which will conflict with my nodes ip address. First I downloaded custom-resources.yaml file and updates below parameter.
 - cidr: 10.244.0.0/16
