@@ -65,3 +65,26 @@ sudo apt-get install -y jq
 
 sudo systemctl enable --now kubelet
 sudo systemctl start kubelet
+
+# Commands Only on Master
+sudo kubeadm config images pull
+
+sudo kubeadm init
+
+mkdir -p "$HOME"/.kube
+sudo cp -i /etc/kubernetes/admin.conf "$HOME"/.kube/config
+sudo chown "$(id -u)":"$(id -g)" "$HOME"/.kube/config
+
+### Nwtwork plugin = calico
+kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.0/manifests/calico.yaml
+
+kubeadm token create --print-join-command
+
+Copy Token 
+
+
+# Commands on Worker
+
+sudo kubeadm reset pre-flight checks
+
+paste token
