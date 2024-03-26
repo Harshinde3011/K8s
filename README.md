@@ -75,7 +75,7 @@ mkdir -p "$HOME"/.kube <br>
 sudo cp -i /etc/kubernetes/admin.conf "$HOME"/.kube/config <br>
 sudo chown "$(id -u)":"$(id -g)" "$HOME"/.kube/config <br>
 
-### Nwtwork plugin = calico
+### Network plugin = calico
 kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.0/manifests/calico.yaml <br>
 
 kubeadm token create --print-join-command <br>
